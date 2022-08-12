@@ -11,7 +11,7 @@ var dataLarge []byte
 const size = 64 * 1024 // 65536
 
 func benchmarkLargeSizePool(b *testing.B) {
-	var bytePool = sync.Pool{
+	bytePool := sync.Pool{
 		New: func() interface{} {
 			b := make([]byte, size)
 			return b
@@ -22,9 +22,9 @@ func benchmarkLargeSizePool(b *testing.B) {
 		_ = dataLarge
 		bytePool.Put(dataLarge)
 	}
-	
+
 	m := new(sync.Map)
-	
+
 	actual, ok := m.Load("key")
 	if ok {
 		m.Delete("key")
