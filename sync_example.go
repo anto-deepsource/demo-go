@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"sync"
 	"testing"
 )
@@ -20,5 +21,13 @@ func benchmarkLargeSizePool(b *testing.B) {
 		dataLarge = bytePool.Get().([]byte)
 		_ = dataLarge
 		bytePool.Put(dataLarge)
+	}
+	
+	m := new(sync.Map)
+	
+	actual, ok := m.Load("key")
+	if ok {
+		m.Delete("key")
+		fmt.Println(actual)
 	}
 }
