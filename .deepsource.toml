@@ -7,6 +7,9 @@ name = "go"
   import_root = "github.com/akshit-deepsource/demo-go"
 
 [[analyzers]]
+name = "python"
+
+[[analyzers]]
 name = "secrets"
 
 [[transformers]]
