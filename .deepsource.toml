@@ -8,3 +8,6 @@ name = "go"
 
 [[analyzers]]
 name = "secrets"
+
+[[transformers]]
+name = "gofumpt"
