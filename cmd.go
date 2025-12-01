@@ -49,7 +49,6 @@ func runCmd(command string, args []string, env []string, cmdDir string) (string,
 	wg.Wait()
 
 	err = cmd.Wait()
-
 	if err != nil {
 		log.Println("-> ERROR: ", err.Error())
 		if exitError, ok := err.(*exec.ExitError); ok {
